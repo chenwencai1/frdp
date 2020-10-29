@@ -2,7 +2,7 @@ import axios from 'axios'
 /* import qs from 'qs' */
 import { Message } from 'element-ui'
 
-let env = process.env.NODE_ENV;
+/* let env = process.env.NODE_ENV;
  switch (env) {
     case 'production':
         axios.defaults.baseURL = window.frdp.baseUrl;
@@ -13,8 +13,9 @@ let env = process.env.NODE_ENV;
     default:
         axios.defaults.baseURL = 'http://192.168.43.169:9372';
         break;
-}
-//axios.defaults.baseURL='http://192.168.0.116:8080'
+} */
+axios.defaults.baseURL=window.frmzdp.baseUrl
+// axios.defaults.baseURL='http://192.168.0.116:8080'
 axios.defaults.timeout = 100000 // 响应时间
 // 允许携带凭证
 //axios.defaults.withCredentials = true

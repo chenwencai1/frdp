@@ -168,7 +168,7 @@ export default {
           {
             name: "访问来源",
             type: "pie",
-            radius: ["50%", "70%"],
+            radius: ["40%", "80%"],
             center: ["40%", "50%"], //饼图的位置
             avoidLabelOverlap: false,
             label: {
@@ -397,7 +397,7 @@ export default {
           {
             name: "访问来源",
             type: "pie",
-            radius: ["50%", "70%"],
+            radius: ["40%", "70%"],
             center: ["50%", "45%"], //饼图的位置
             avoidLabelOverlap: true,
             label: {
@@ -573,6 +573,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+@import "../assets/public";
 .index {
   margin: 0 auto;
   font-size: 1.5vh;
@@ -586,24 +587,17 @@ export default {
     margin-bottom: 0;
   }
 }
-
-.el-header {
-  height: 6vh !important;
-  color: #ffffff;
-  text-align: center;
-  line-height: 6vh;
-}
 .title1 {
-  background-color: #23b6b6;
+  .title(@pthzTitle)
 }
 .title2 {
-  background-color: #5c4197;
+  .title(@yllxTitle)
 }
 .title3 {
-  background-color: #3757a6;
+  .title(@mzyyTitle)
 }
 .title4 {
-  background-color: #5daa3e;
+  .title(@bzfxTitle)
 }
 .el-main {
   height: 43vh;
@@ -662,20 +656,5 @@ export default {
   justify-content: space-between;
   padding: 1vh 0;
   //font-size: 18px;
-}
-
-/deep/.el-table th {
-  height: 4.5vh;
-  line-height: 4.5vh;
-  padding: 0;
-  font-size: 1.5vh;
-  // text-align: center;
-}
-/deep/.el-table td {
-  height: 5.5vh;
-  line-height: 5.5vh;
-  padding: 0;
-  font-size: 1.5vh;
-  // text-align: center;
 }
 </style>

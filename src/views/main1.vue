@@ -17,8 +17,8 @@ export default {
   data(){
     return{
       page:[1,2],
-      flag:false,
-      intervalNum:5000,
+      flag:false, // 自动轮播
+      intervalNum:3000, // 自动轮播间隔
       index:0,// 跑马灯起始展示位置
     }
   },
@@ -32,5 +32,18 @@ export default {
 }
 </script>
 <style lang="less">
-
+/deep/.el-table th {
+  height: 5.5vh;
+  line-height: 5.5vh;
+  padding: 0;
+  font-size: 1.5vh;
+  // text-align: center;
+}
+/deep/.el-table td {
+  height: 5.5vh;
+  line-height: 5.5vh;
+  padding: 0;
+  font-size: 1.5vh;
+  // text-align: center;
+}
 </style>

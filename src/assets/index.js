@@ -1,5 +1,4 @@
 import {post} from './axios'
-console.log(window.frdp,window)
 //let api = window.frdp.baseUrl
 // 首页普通候诊人次
 export const pthzrc=params=>{
