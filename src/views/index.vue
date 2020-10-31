@@ -1,15 +1,16 @@
 <template>
   <div class="index">
-    <el-row :gutter="5">
+    <el-row>
       <el-col :span="16">
         <el-container>
           <el-header class="title1">普通候诊</el-header>
           <el-container>
+            <!-- 普通候诊人次 -->
             <el-main class="mainDiv">
-              <div class="div1 div3">
+              <div class="div3">
                 <div style="height:18vh;width:24vw" ref="pthz"></div>
               </div>
-              <div class="div1 div2">
+              <div class="div2">
                 <span class="mzrc">门诊人次</span>
                 <div class="mzrc1">{{mz.mzrc}}</div>
 
@@ -32,6 +33,7 @@
                 </div>
               </div>
             </el-main>
+            <!-- 普通候诊科室 -->
             <el-aside width="60%">
               <div style="width:38vw;height:41vh" ref="pthzks"></div>
             </el-aside>
@@ -47,7 +49,7 @@
         </el-container>
       </el-col>
     </el-row>
-    <el-row :gutter="5">
+    <el-row >
       <el-col :span="16">
         <el-container>
           <el-header class="title3">门诊预约</el-header>
@@ -139,7 +141,7 @@ export default {
         legend: {
           icon: "circle",
           orient: "vertical",
-          right: "10%",
+          right: "5%",
           top: "35%",
           data: ["就诊", "候诊"],
 
@@ -148,10 +150,15 @@ export default {
             const itemValueAll = ary.reduce((total, num) => {
               return total + parseFloat(num.value);
             }, 0);
-            return `${name} | ${(
+            if(isNaN(itemValueArr[0].value) || isNaN(itemValueAll)){
+              return `${name} |`
+            }else{
+ return `${name} | ${(
               (itemValueArr[0].value / itemValueAll) *
               100
             ).toFixed(2)}%`;
+            }
+           
           },
         },
 
@@ -168,9 +175,10 @@ export default {
           {
             name: "访问来源",
             type: "pie",
-            radius: ["40%", "80%"],
-            center: ["40%", "50%"], //饼图的位置
+            radius: ["40%", "75%"],
+            center: ["36%", "50%"], //饼图的位置
             avoidLabelOverlap: false,
+            fontWeight: "normal",
             label: {
               show: true,
               position: "inside",
@@ -188,8 +196,6 @@ export default {
             emphasis: {
               label: {
                 show: true,
-                fontSize: "18",
-                fontWeight: "normal",
               },
             },
             labelLine: {
@@ -364,10 +370,10 @@ export default {
         legend: {
           icon: "circle",
           orient: "horizontal",
-          /*  width:400,
-          itemGap:5, */
-          // itemWidth :200,
-          bottom: 10,
+          itemGap :25, // 图例每项的间隔
+          left:'20%',
+          right:'15%',
+          bottom: 1,
           data: yllxmc,
 
           formatter: (name) => {
@@ -380,7 +386,7 @@ export default {
             return `${name} | ${(
               (itemValueArr[0].value / itemValueAll) *
               100
-            ).toFixed(0)}%`;
+            ).toFixed(2)}%`;
           },
         },
 
@@ -397,8 +403,8 @@ export default {
           {
             name: "访问来源",
             type: "pie",
-            radius: ["40%", "70%"],
-            center: ["50%", "45%"], //饼图的位置
+            radius: ["36%", "56%"],
+            center: ["50%", "40%"], //饼图的位置
             avoidLabelOverlap: true,
             label: {
               show: true,
@@ -576,15 +582,21 @@ export default {
 @import "../assets/public";
 .index {
   margin: 0 auto;
-  font-size: 1.5vh;
+  font-size: @fontSize18;
   /deep/.el-table .warning-row {
     background-color: #ebeef6;
   }
 }
-.el-row {
-  margin-bottom: 1vh;
+.el-col{
+ padding-right: @padding;
   &:last-child {
-    margin-bottom: 0;
+    padding-right: 0;
+  }
+}
+.el-row {
+  padding-bottom: @padding;
+  &:last-child {
+    padding-bottom: 0;
   }
 }
 .title1 {
@@ -608,53 +620,61 @@ export default {
 }
 .el-aside {
   height: 43vh;
-  margin-left: 1vh;
+  margin-left: @padding;
   background-color: #fbfbfb;
 }
 .mainDiv {
   background-color: #eff0f4;
-  .div1 {
-    background-color: #fbfbfb;
-  }
   .div2 {
-    height: 11.5vh;
-    margin-top: 1vh;
+    background-color: @bsbgcolor;
+    height: 11vh;
+    margin: @padding 0;
     padding: 1vh 0 0 1vh;
   }
   .div3 {
     height: 18vh;
     line-height: 18vh;
+    background-color: @bsbgcolor;
   }
   .div4 {
+    height: 11vh;
     width: 49%;
     padding: 1vh 0 0 1vh;
-    background-color: #fbfbfb;
+    background-color: @bsbgcolor;
   }
   .div5 {
-    margin-left: 1vh;
+    margin-left: @padding;
   }
+}
+/deep/.el-table th {
+  .tableStly();
+  color: #666666;
+}
+/deep/.el-table td {
+ .tableStly()
 }
 .row {
   width: 100%;
   display: flex;
   flex-direction: row;
-  padding: 1vh 0 0 0;
+  padding: 0;
 }
 .mzrc {
-  color: #201f1f;
-  font-size: 1vh;
+  color: #666666;
+  font-size: @fontSize18;
 }
 .mzrc1 {
   width: 100%;
   border-bottom: #eaeaea 1px solid;
   color: #23b6b6;
-  font-size: 3vh;
+  font-size: @fontSize28;
 }
 
 .spanf {
   display: flex;
   justify-content: space-between;
   padding: 1vh 0;
-  //font-size: 18px;
+  font-size: @fontSize18;
 }
+
 </style>

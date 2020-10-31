@@ -32,18 +32,4 @@ export default {
 }
 </script>
 <style lang="less">
-/deep/.el-table th {
-  height: 5.5vh;
-  line-height: 5.5vh;
-  padding: 0;
-  font-size: 1.5vh;
-  // text-align: center;
-}
-/deep/.el-table td {
-  height: 5.5vh;
-  line-height: 5.5vh;
-  padding: 0;
-  font-size: 1.5vh;
-  // text-align: center;
-}
 </style>

@@ -2,11 +2,13 @@
 @yllxTitle:#5c4197; // 医疗类型标题背景色
 @mzyyTitle:#3757a6; // 门诊预约标题背景色
 @bzfxTitle:#5daa3e; // 病种分析标题背景色
-@titleHeight:6vh; // 标题高度70px
-@margin:1vh; // 区域之间的间隔10px
-@fontSize18:1.6vh; // 字号18px
-@fontSize28:2.6vh; // 字号28px
-@width:1.8vh; // 20px
+@bsbgcolor:#fbfbfb; // 盒子白色背景色
+@titleHeight:7vh; // 标题高度70px
+@padding:1vh; // 布局区域之间的间隔10px
+@fontSize18:1.9vh; // 字号18px
+@fontSize28:3vh; // 字号28px
+@fontSize16:1.6vh; // 字号16px
+@width:2vh; // 20px
 // 标题样式
 .title(@bgcolor:#ffffff){
   height: @titleHeight !important;
@@ -15,4 +17,11 @@
   line-height: @titleHeight;
   background-color: @bgcolor;
   font-size: @fontSize28; // 字号28px
+}
+// 表格样式
+.tableStly(){
+  height: 5vh;
+  line-height: 5vh;
+  padding: 0;
+  font-size: @width;
 }
